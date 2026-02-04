@@ -1,0 +1,92 @@
+body {
+    font-family: 'Sarabun', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* เพิ่ม Font ที่รองรับภาษาไทย */
+    margin: 20px;
+    line-height: 1.6; /* ปรับระยะห่างบรรทัดให้อ่านง่ายขึ้น */
+    color: #333;      /* เปลี่ยนสีดำสนิทเป็นสีเทาเข้มเพื่อถนอมสายตา */
+}
+
+#list-cs {
+    background-color: bisque;
+    text-align: center;
+    color: green;
+    padding: 10px;        /* เพิ่มพื้นที่รอบข้อความไม่ให้ชิดขอบ */
+    border-radius: 5px;   /* ลบมุมให้ดูนุ่มนวลขึ้น */
+    list-style-position: inside; /* จัด bullet ให้อยู่ด้านใน */
+}
+
+.topic-heading {
+    border-left: 6px solid red;
+    padding-left: 15px;   /* เว้นระยะห่างจากเส้นขอบแดง */
+    margin-top: 25px;     /* เว้นระยะห่างจากเนื้อหาก่อนหน้า */
+    margin-bottom: 15px;
+}
+
+.heading {
+    color: #0D3D56 !important;
+}
+
+p {
+    text-indent: 40px;
+    transition: all 0.3s ease; /* เพิ่มการเคลื่อนที่ให้ดูลื่นไหล */
+    padding: 10px;             /* เพิ่มพื้นที่เล็กๆสำหรับการทำ Hover */
+    border-radius: 5px;
+}
+
+p::first-letter {
+    font-size: 35px;
+    color: blue;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+p:hover {
+    background-color: #f9f9f9; /* เปลี่ยนเป็นสีพื้นหลังอ่อนๆ แทน */
+    color: #cc0000;            /* เปลี่ยนสีตัวอักษรเป็นแดงเข้ม */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* เพิ่มเงาให้ดูลอยเด่นขึ้น */
+}
+
+a:link {
+    color: blueviolet;
+    text-decoration: underline dotted red; 
+}
+
+a:visited {
+    color: gray;
+    text-decoration: underline dotted blue;
+}
+
+a:hover {
+    text-decoration: none; /* ลบเส้นใต้ออกเมื่อเอาเมาส์ชี้ */
+    background-color: #f0f0f0;
+}
+
+li a {
+    background-color: aquamarine;
+    padding: 0 5px; /* เพิ่มระยะห่างให้ Link ใน List */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* รวมเส้นขอบตารางให้เป็นเส้นเดียว */
+    margin-top: 20px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #0D3D56; /* ใช้สีเดียวกับ Heading หลัก */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* ทำสีสลับบรรทัด */
+}
+
+tr:hover {
+    background-color: #ddd; /* เปลี่ยนสีแถวเมื่อเอาเมาส์ชี้ */
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS363-Lab3 Responsive Design (Final)</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+
+        /* iPhone, Samsung Galaxy, iPad */
+        .box {
+            width: 50%;
+            
+            font-size: 16px;
+            color: black;
+            border: 5px solid black;
+            padding: 15px;
+            height: 400px; 
+            overflow: hidden; 
+        }
+
+        .bg-green { background-color: lightgreen; }
+        .bg-blue { background-color: lightblue; }
+
+
+        /* PC Screen */
+        @media (hover: hover) {
+            
+            .box {
+                width: 25%;
+            }
+
+            @media (min-width: 701px) {
+                .box {
+                    color: red;
+                    font-size: 30px;
+                }
+            }
+
+            @media (max-width: 500px) {
+                .box:nth-of-type(2),
+                .box:nth-of-type(4) {
+                    display: none;
+                }
+
+                .box {
+                    width: 100%;
+                }
+            }
+        }
+
+
+        /* Print Layout */
+        @media print {
+            .box {
+                width: 100%;
+                height: auto;
+                overflow: visible; 
+                border: none;
+                background-color: transparent;
+                color: black !important; 
+                font-size: 12pt;
+                margin-bottom: 20px;
+                display: block;
+            }
+            
+            .box:nth-of-type(2),
+            .box:nth-of-type(4) {
+                display: block !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box bg-green">
+            <strong>Paragraph I</strong><br>
+            Thammasat is Thailand's second oldest university. Officially established to
+            be the national university of Thailand on 27 June 1934, it was named by its
+            founder, Pridi Banomyong, the University of Moral and Political Sciences
+            (Thai: มหาวิทยาลัยวิชาธรรมศาสตร์และการเมือง; RTGS: Mahawitthayalai Wicha Thammasat Lae
+            Kanmueang). It began as an open university, with 7,094 students studying law
+            and politics in its first year.
+        </div>
+
+        <div class="box bg-green">
+            <strong>Paragraph II</strong><br>
+            In 1960, the university ended its free-entry policy and became the first in
+            Thailand to require passing national entrance examinations for admission.
+            Thammasat today offers more than 240 academic programmes in 33 different
+            faculties and colleges on four campuses. Over the 80 years since its
+            foundation, Thammasat University has evolved from an open university for law
+            and politics to an international university offering all levels of academic
+            degrees in many fields and disciplines. It has graduated more than 300,000
+            undergraduate and graduate students. The university's alumni have included
+            some of Thailand's prime ministers, leading politicians, governmental
+            figures, Bank of Thailand governors, and jurists.[7]
+        </div>
+
+        <div class="box bg-blue">
+            <strong>Paragraph III</strong><br>
+            มหาวิทยาลัยธรรมศาสตร์ (มธ.; อังกฤษ: Thammasat University; TU) เป็นมหาวิทยาลัยแห่งที่สองของประเทศไทย ก่อตั้งในชื่อ มหาวิทยาลัย
+            วิชาธรรมศาสตร์และการเมือง (มธก.; อังกฤษ: The University of Moral and Political Sciences; UMPS)
+            เมื่อวันที่ 27 มิถุนายน พ.ศ. 2477 โดยมีจุดประสงค์เพื่อเป็นตลาดวิชา เพื่อการศึกษาด้านกฎหมายและการเมือง รวมถึงเศรษฐศาสตร์และพาณิชยศาสตร์ สำหรับ
+            ประชาชนทั่วไป โดยมีรากฐานเดิมมาจาก "โรงเรียนกฎหมาย กระทรวงยุติธรรม" ที่จัดตั้งขึ้นตั้งแต่ พ.ศ. 2440 ต่อมาใน พ.ศ. 2495 รัฐบาลจึงได้เปลี่ยนเป็นชื่อปัจจุบัน
+            นับเป็นมหาวิทยาลัยที่มีอายุเป็นอันดับ 2 ของประเทศไทย และมีประวัติศาสตร์ผูกพันกับพัฒนาการทางการเมือง และความเป็นไปของชาติ ตลอดจนเรื่องของรัฐธรรมนูญ
+            และประชาธิปไตย[5] โดยเฉพาะอย่างยิ่งในเหตุการณ์ 14 ตุลา และ เหตุการณ์ 6 ตุลา[6]
+        </div>
+
+        <div class="box bg-blue">
+            <strong>Paragraph IV</strong><br>
+            ปัจจุบันมหาวิทยาลัยธรรมศาสตร์จัดการศึกษาครอบคลุมทางด้านสังคมศาสตร์ มนุษยศาสตร์ วิทยาศาสตร์ เทคโนโลยี และวิทยาศาสตร์สุขภาพ ประกอบไปด้วย 19 คณะ 4
+            วิทยาลัย 1 สถาบัน 1 สำนักวิชา จำนวนหลักสูตรทุกระดับจำนวนทั้งสิ้น 297 หลักสูตร เป็นระดับปริญญาตรี 139 หลักสูตร ประกาศนียบัตรบัณฑิต 6 หลักสูตร ปริญญาตรี
+            ควบปริญญาโท 4 หลักสูตร ปริญญาโท 118 หลักสูตร และปริญญาเอก 34 หลักสูตร จัดการศึกษาทั้งภาคกลางวันและภาคค่ำ (ข้อมูล พ.ศ. 2557–2558[9]) นอกจากนี้ได้รับ
+            เลือกให้เป็น 1 ใน 9 มหาวิทยาลัยวิจัยแห่งชาติจากกระทรวงศึกษาธิการใน พ.ศ. 2552 อีกด้วย
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            border: 3px solid black;
+            height: 50vh;
+        }
+        .top-container {
+            display: flex;
+            height: 50%;
+        }
+        .upper-item-1 {
+            flex: 1
+        }
+        .upper-item-2 {
+            flex: 3
+        }
+        .upper-item-3 {
+            flex: 3
+        }
+        .top-container > * {
+            background-color: lightblue;
+            border: 2px solid black;
+            padding: 4px;
+        }
+        .bottom-container {
+            display: flex;
+            height: 50%;
+        }
+        .lower-item-1 {
+            flex: 1
+        }
+        .lower-item-2 {
+            flex: 2
+        }
+        .lower-item-3 {
+            flex: 1
+        }
+        .lower-item-4 {
+            flex: 2
+        }
+        .bottom-container > * {
+            background-color: lightblue;
+            border: 2px solid black;
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-container">
+            <div class="upper-item-1">
+                1
+            </div>
+            <div class="upper-item-2">
+                2
+            </div>
+            <div class="upper-item-3">
+                3
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="lower-item-1">
+                4
+            </div>
+            <div class="lower-item-2">
+                5
+            </div>
+            <div class="lower-item-3">
+                6
+            </div>
+            <div class="lower-item-4">
+                7
+            </div>
+        </div>
+    </div>
+</body>
+</html>

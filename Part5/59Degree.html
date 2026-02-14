@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <title>59 Degree บร.2 </title>
+    <style>
+        
+        body { font-family: 'Kanit', sans-serif; background: #f8f9fa; padding: 20px; }
+        .container { max-width: 850px; margin: auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        
+        /* ภาพร้านด้านบนสุด */
+        .shop-header-img { width: 100%; height: 250px; object-fit: cover; border-radius: 15px; margin-bottom: 25px; }
+        
+        h1 { text-align: center; color: #e67e22; margin-bottom: 10px; }
+        .sub-title { text-align: center; color: #7f8c8d; margin-bottom: 30px; }
+
+        /* จัดวาง Grid  */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .menu-item { background: #fff; border: 1px solid #eee; padding: 15px 20px; border-radius: 12px; 
+                    display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
+        .menu-item:hover { border-color: #e67e22; background: #fffdfa; }
+        
+        .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); 
+                        display: none; align-items: center; justify-content: center; z-index: 1000; backdrop-filter: blur(4px); }
+        .modal-card { background: white; padding: 30px; border-radius: 20px; text-align: center; max-width: 450px; width: 90%; 
+                    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        @keyframes popIn { from { transform: scale(0.7); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+        
+        /* ปุ่มกด */
+        .btn-group { display: flex; gap: 15px; margin-top: 35px; justify-content: center; }
+        .btn { padding: 12px 30px; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; transition: 0.2s; font-size: 16px; }
+        .btn-confirm { background: #27ae60; color: white; }
+        .btn-reset { background: #e74c3c; color: white; }
+        .btn-modal-primary { background: #e67e22; color: white; width: 100%; margin-top: 15px; }
+        .btn-modal-secondary { background: #95a5a6; color: white; width: 100%; margin-top: 10px; }
+        
+        input[type="number"] { width: 55px; padding: 8px; border-radius: 8px; border: 1px solid #ddd; text-align: center; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <img src="59.jpeg">
+    
+    <h1>59 Degree Coffee</h1>
+    <p class="sub-title">Menu</p>
+
+    <div class="menu-grid" id="menu-container">
+        </div>
+
+    <div class="btn-group">
+        <button class="btn btn-confirm" id="btn-step1">Confirm</button>
+        <button class="btn btn-reset" id="btn-reset-main">Reset</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="ui-modal">
+    <div class="modal-card">
+        <h2 id="modal-title" style="margin-top:0; color: #e67e22;"></h2>
+        <div id="modal-body" style="text-align: left; margin: 20px 0; padding: 10px; background: #fdfdfd; border-radius: 10px;"></div>
+        <div id="modal-footer"></div>
+    </div>
+</div>
+
+<script>
+    // ข้อมูลสินค้าและราคา 
+    const drinks = [
+        { name: "ชาไทย", price: 40 }, { name: "กาแฟสด", price: 40 },
+        { name: "โกโก้เย็นเข้มข้น", price: 45 }, { name: "นมชมพู", price: 35 },
+        { name: "มัทฉะลาเต้", price: 50 }, { name: "แดงมะนาวโซดา", price: 35 },
+        { name: "ชามะนาว", price: 45 }, { name: "เอสเปรสโซ่", price: 45 },
+        { name: "อเมริกาโน่", price: 40 }, { name: "นมสดน้ำผึ้ง", price: 40 }
+    ];
+
+    const container = document.getElementById('menu-container');
+    drinks.forEach((item, i) => {
+        const div = document.createElement('div');
+        div.className = 'menu-item';
+        div.innerHTML = `
+            <div>
+                <strong>${item.name}</strong><br>
+                <small style="color:#e67e22">${item.price} บาท</small>
+            </div>
+            <input type="number" class="qty" data-name="${item.name}" data-price="${item.price}" value="0" min="0">
+        `;
+        container.appendChild(div);
+    });
+
+    document.getElementById('btn-step1').addEventListener('click', function() {
+        let total = 0;
+        let listHTML = "<ul style='padding-left:20px;'>";
+        const inputs = document.querySelectorAll('.qty');
+        
+        inputs.forEach(input => {
+            const q = parseInt(input.value);
+            if(q > 0) {
+                total += q * parseInt(input.dataset.price);
+                listHTML += `<li>${input.dataset.name} x ${q} แก้ว</li>`;
+                input.disabled = true; // ล็อคการสั่งรอบที่ 1 
+            }
+        });
+
+        if(total > 0) {
+            showModal("📋 สรุปรายการสั่งซื้อ", listHTML + `</ul><hr><h3 style='text-align:center;'>รวมทั้งสิ้น: ${total} บาท</h3>`, 
+                `<button class="btn btn-modal-primary" onclick="confirmFinal()">Sent Order</button>
+                <button class="btn btn-modal-secondary" onclick="closeModal()">Edit</button>`);
+            this.disabled = true; // ล็อคปุ่มยืนยันรอบแรก 
+        } else {
+            showModal("⚠️ แจ้งเตือน", "<p style='text-align:center;'>กรุณาเลือกเครื่องดื่มอย่างน้อย 1 รายการครับ</p>", 
+                `<button class="btn btn-modal-primary" onclick="closeModal()">Ok</button>`);
+        }
+    });
+
+    // ปุ่ม Reset
+    document.getElementById('btn-reset-main').addEventListener('click', function() {
+        showModal("🔄 รีเซ็ตการสั่ง?", "<p style='text-align:center;'>ข้อมูลการเลือกทั้งหมดจะถูกล้าง คุณต้องการดำเนินการต่อใช่หรือไม่?</p>", 
+            `<button class="btn btn-reset" style="width:100%" onclick="location.reload()">Reset</button>
+            <button class="btn btn-modal-secondary" onclick="closeModal()">Cancel</button>`);
+    });
+
+    function showModal(title, body, footer) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-body').innerHTML = body;
+        document.getElementById('modal-footer').innerHTML = footer;
+        document.getElementById('ui-modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('ui-modal').style.display = 'none';
+    }
+
+    function confirmFinal() {
+        showModal("✨ สำเร็จ!", "<p style='text-align:center;'>ส่งออเดอร์เรียบร้อยแล้ว! ระบบจะรีเซ็ตเพื่อรับลูกค้ารายต่อไป</p>", 
+            `<button class="btn btn-modal-primary" onclick="location.reload()">เริ่มสั่งใหม่</button>`);
+    }
+</script>
+</body>
+</html>

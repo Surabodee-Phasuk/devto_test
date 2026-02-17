@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบฟอร์มสำหรับการสมัครเรียนต่อปริญญาโท</title>
+    <style>
+        body { font-family: 'Kanit', sans-serif; background: #f4f7f6; padding: 40px 20px; color: #2d3436; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 20px; 
+                    box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+        
+        h1 { text-align: center; color: #2980b9; margin-bottom: 30px; border-bottom: 3px solid #3498db; display: inline-block; width: 100%; padding-bottom: 10px; }
+        
+        .form-group { margin-bottom: 22px; }
+        label { display: block; font-weight: 600; margin-bottom: 8px; color: #2c3e50; }
+        
+        input[type="text"], input[type="email"], input[type="number"], input[type="date"], select, textarea {
+            width: 100%; padding: 12px; border: 1px solid #dfe6e9; border-radius: 12px; font-size: 15px; transition: 0.3s;
+        }
+        input:focus { border-color: #3498db; outline: none; box-shadow: 0 0 8px rgba(52,152,219,0.2); }
+
+        .grid-3 { 
+            display: grid; 
+            grid-template-columns: 0.8fr 2fr 1.2fr;
+            gap: 20px;
+        }
+
+        .grid-2 { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 20px;
+        }
+
+        input, select {
+            box-sizing: border-box;
+        }
+        
+        .option-card { background: #f9f9f9; padding: 15px; border-radius: 12px; border: 1px solid #eee; }
+        
+        .btn-group { display: flex; gap: 15px; margin-top: 40px; }
+        .btn { flex: 1; padding: 16px; border: none; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 17px; transition: 0.2s; }
+        .btn-confirm { background: #27ae60; color: white; }
+        .btn-confirm:hover { background: #2ecc71; transform: translateY(-2px); }
+        .btn-reset { background: #e74c3c; color: white; }
+        .btn-reset:hover { background: #ff7675; }
+
+        .summary-view { line-height: 2; font-size: 1.1em; background: #fff; }
+        .info-row { border-bottom: 1px solid #f1f1f1; padding: 10px 0; display: flex; }
+        .info-label { font-weight: bold; color: #7f8c8d; width: 220px; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="app-content">
+    <h1>ใบสมัครเข้าศึกษาต่อ</h1>
+    
+    <form id="admissionForm">
+        <div class="grid-3">
+            <div class="form-group">
+                <label>คำนำหน้า</label>
+                <select name="title" required>
+                    <option value="">เลือก...</option>
+                    <option value="นาย">นาย</option>
+                    <option value="นาง">นาง</option>
+                    <option value="นางสาว">นางสาว</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>ชื่อ-นามสกุล</label>
+                <input type="text" name="fullname" placeholder="กรอกชื่อและนามสกุล" required>
+            </div>
+            <div class="form-group">
+                <label>วัน/เดือน/ปีเกิด</label>
+                <input type="date" name="dob" required>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="form-group">
+                <label>อีเมล</label>
+                <input type="email" name="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label>GPAX ปริญญาตรี</label>
+                <input type="number" name="gpax" step="0.01" min="0" max="4.00" placeholder="0.00" required>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>แผนการเรียนที่ต้องการสมัคร</label>
+            <div class="option-card">
+                <input type="radio" name="plan" value="ภาคปกติ" checked> ภาคปกติ &nbsp;&nbsp;
+                <input type="radio" name="plan" value="ภาคพิเศษ"> ภาคพิเศษ
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>อุปกรณ์ IT ที่ต้องการยืมเรียน (เลือกได้มากกว่า 1)</label>
+            <div class="option-card">
+                <input type="checkbox" name="gadgets" value="MacBook Pro"> MacBook &nbsp;
+                <input type="checkbox" name="gadgets" value="iPad Pro"> iPad &nbsp;
+                <input type="checkbox" name="gadgets" value="USB-C Hub"> USB-C Hub
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>ที่อยู่ปัจจุบันเพื่อใช้ในการติดต่อ</label>
+            <textarea name="address" rows="3" placeholder="บ้านเลขที่, ถนน, แขวง/ตำบล..." required></textarea>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-confirm" onclick="submitAndSummary()">ยืนยันการส่งข้อมูล</button>
+            <button type="reset" class="btn btn-reset">ล้างข้อมูล</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function submitAndSummary() {
+        const form = document.getElementById('admissionForm');
+        
+        if (!form.checkValidity()) {
+            alert("กรุณากรอกข้อมูลที่สำคัญให้ครบถ้วนก่อนยืนยัน");
+            form.reportValidity();
+            return;
+        }
+
+        const formData = new FormData(form);
+        const results = {};
+        let gadgetList = [];
+
+        formData.forEach((value, key) => {
+            if (key === 'gadgets') {
+                gadgetList.push(value);
+            } else {
+                results[key] = value;
+            }
+        });
+
+        let summaryHTML = `
+            <div class="summary-view">
+                <h2 style="color:#27ae60; text-align:center;">📋 สรุปผลการลงทะเบียนสำเร็จ</h2>
+                <hr>
+                <div class="info-row"><span class="info-label">ชื่อ-นามสกุล:</span> ${results.title}${results.fullname}</div>
+                <div class="info-row"><span class="info-label">วันเกิด:</span> ${results.dob}</div>
+                <div class="info-row"><span class="info-label">อีเมลติดต่อ:</span> ${results.email}</div>
+                <div class="info-row"><span class="info-label">GPAX:</span> ${results.gpax}</div>
+                <div class="info-row"><span class="info-label">แผนการเรียน:</span> ${results.plan}</div>
+                <div class="info-row"><span class="info-label">อุปกรณ์ที่ขอยืม:</span> ${gadgetList.length > 0 ? gadgetList.join(', ') : 'ไม่ได้ระบุอุปกรณ์'}</div>
+                <div class="info-row" style="flex-direction:column;">
+                    <span class="info-label">ที่อยู่จัดส่งเอกสาร/อุปกรณ์:</span>
+                    <p style="background:#f9f9f9; padding:15px; border-radius:10px; margin-top:5px;">${results.address}</p>
+                </div>
+                
+                <div class="btn-group">
+                    <button class="btn btn-reset" style="width:100%; background:#bdc3c7;" onclick="location.reload()">กลับหน้าหลัก</button>
+                </div>
+            </div>
+        `;
+
+        document.getElementById('app-content').innerHTML = summaryHTML;
+    }
+</script>
+
+</body>
+</html>

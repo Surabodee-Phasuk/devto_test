@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Movies List</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="footer-div"></div>
+
+    <script type="text/babel">
+        const movies = [
+            { title: 'Pee Mak', director: 'Banjong Pisanthanakun', year: 2013, genre: 'Comedy, Horror' },
+            { title: 'Bad Genius', director: 'Nattawut Poonpiriya', year: 2017, genre: 'Thriller' },
+            { title: 'Ong-Bak: Muay Thai Warrior', director: 'Prachya Pinkaew', year: 2003, genre: 'Action' },
+            { title: 'The Love of Siam', director: 'Chookiat Sakveerakul', year: 2007, genre: 'Romance, Drama' }
+        ];
+
+        const rootElement = document.getElementById('root');
+        const root = ReactDOM.createRoot(rootElement);
+
+        // แปลงเป็น JSX 
+        root.render(
+            <React.Fragment>
+                <h1>List of Thai Movies</h1>
+                <ul>
+                    {movies.map((movie, index) => (
+                        <li key={index}>
+                            <strong>Title:</strong> {movie.title} <br />
+                            <strong>Director:</strong> {movie.director} <br />
+                            <strong>Release Year:</strong> {movie.year} <br />
+                            <strong>Genre:</strong> {movie.genre}
+                        </li>
+                    ))}
+                </ul>
+            </React.Fragment>
+        );
+
+        const footerRootElement = document.getElementById('footer-div');
+        const footerRoot = ReactDOM.createRoot(footerRootElement);
+
+        // แปลงเป็น JSX  
+        footerRoot.render(
+            <h1 
+                className="footer" 
+                style={{ color: 'green', fontStyle: 'italic' }}
+            >
+                มีภาพยนตร์ในรายการทั้งหมด 4 เรื่อง
+            </h1>
+        );
+    </script>
+</body>
+</html>

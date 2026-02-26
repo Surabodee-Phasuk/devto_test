@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Movies List</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/javascript">
+        const movies = [
+            { title: 'Pee Mak', director: 'Banjong Pisanthanakun', year: 2013, genre: 'Comedy, Horror' },
+            { title: 'Bad Genius', director: 'Nattawut Poonpiriya', year: 2017, genre: 'Thriller' },
+            { title: 'Ong-Bak: Muay Thai Warrior', director: 'Prachya Pinkaew', year: 2003, genre: 'Action' },
+            { title: 'The Love of Siam', director: 'Chookiat Sakveerakul', year: 2007, genre: 'Romance, Drama' }
+        ];
+
+         function MovieList() {
+            const movieItems = movies.map((movie, index) => {
+                return React.createElement(
+                    'li', 
+                    { key: index },
+                    React.createElement('strong', null, 'Title:'), ` ${movie.title} `, React.createElement('br', null),
+                    React.createElement('strong', null, 'Director:'), ` ${movie.director} `, React.createElement('br', null),
+                    React.createElement('strong', null, 'Release Year:'), ` ${movie.year} `, React.createElement('br', null),
+                    React.createElement('strong', null, 'Genre:'), ` ${movie.genre}`
+                );
+            });
+
+            return React.createElement('div', null,
+                React.createElement('h1', null, 'List of Thai Movies'), 
+                React.createElement('ul', null, movieItems)             
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(React.createElement(MovieList));
+    </script>
+</body>
+</html>

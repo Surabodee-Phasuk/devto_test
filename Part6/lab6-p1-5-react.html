@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Movies List</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <div id="footer-div"></div>
+
+    <script type="text/babel">
+
+        function MovieList (){
+            const movies = [
+                { title: 'Pee Mak', director: 'Banjong Pisanthanakun', year: 2013, genre: 'Comedy, Horror' },
+                { title: 'Bad Genius', director: 'Nattawut Poonpiriya', year: 2017, genre: 'Thriller' },
+                { title: 'Ong-Bak: Muay Thai Warrior', director: 'Prachya Pinkaew', year: 2003, genre: 'Action' },
+                { title: 'The Love of Siam', director: 'Chookiat Sakveerakul', year: 2007, genre: 'Romance, Drama' }
+            ];
+
+            return (
+                <div>
+                   <h1>List of Thai Movies</h1>
+                     {movies.map((movie, i) => (
+                        <div key={i}>
+                           <p>Title: {movie.title}</p>
+                           <p>Director: {movie.director}</p>
+                           <p>Release Year: {movie.year}</p>
+                           <p>Genre: {movie.genre}</p>
+                        </div>
+                     ))}
+                </div>
+            );
+        }
+
+        function Footer(props) {
+            
+            return (
+               <div>
+                  <p style={{ color: 'green', fontStyle: 'italic' }}>มีภาพยนตร์ในรายการทั้งหมด {props.noFirms} เรื่อง</p>
+               </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<MovieList />);
+        
+        const footerRoot = ReactDOM.createRoot(document.getElementById("footer-div"));
+        footerRoot.render(<Footer noFirms={4} />);
+    </script>
+</body>
+</html>

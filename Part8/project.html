@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painner — Projects (Empty State)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/project.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-container">
+            <div class="logo-icon">P</div>
+            <span class="brand-name">Painner</span>
+        </div>
+
+        <div class="menu-label">MAIN MENU</div>
+        <a href="dashboard.html" class="menu-item"><span></span> Dashboard</a>
+        <a href="team.html" class="menu-item"><span></span> Teams</a>
+        <a href="project.html" class="menu-item active"><span></span> Projects</a>
+        <a href="chat.html" class="menu-item">
+            <span></span> Chat
+            <span class="noti-badge">0</span>
+        </a>
+
+        <div class="user-profile">
+            <div class="avatar">JD</div>
+            <div>
+                <div class="user-name">John Doe</div>
+                <div class="user-role">Owner</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="top-navbar">
+            <div class="breadcrumb">
+                <span class="text-sub">Dev Team Alpha / Painner Web App /</span> 
+                <span class="current-page">Sprint 1</span>
+            </div>
+            
+            <div class="nav-actions">
+                <div class="sprint-tabs">
+                    <button class="tab active">Sprint 1</button>
+                    <button class="tab-add">+</button>
+                </div>
+                <button class="btn-create" onclick="alert('ระบบกำลังพัฒนาส่วนการเพิ่ม Task')">+ เพิ่ม Task</button>
+            </div>
+        </div>
+
+        <div class="kanban-board">
+            <div class="kanban-column" id="todo-column">
+                <div class="column-header">
+                    <div class="header-left">
+                        <span class="status-dot todo"></span>
+                        <span class="status-title">TO-DO</span>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+                <div class="task-container empty">
+                    <p class="empty-msg">ยังไม่มีงานในส่วนนี้</p>
+                </div>
+            </div>
+
+            <div class="kanban-column" id="inprogress-column">
+                <div class="column-header">
+                    <div class="header-left">
+                        <span class="status-dot progress"></span>
+                        <span class="status-title">IN PROGRESS</span>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+                <div class="task-container empty">
+                    <p class="empty-msg">ยังไม่มีงานในส่วนนี้</p>
+                </div>
+            </div>
+
+            <div class="kanban-column" id="review-column">
+                <div class="column-header">
+                    <div class="header-left">
+                        <span class="status-dot review"></span>
+                        <span class="status-title">REVIEW</span>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+                <div class="task-container empty">
+                    <p class="empty-msg">ยังไม่มีงานในส่วนนี้</p>
+                </div>
+            </div>
+
+            <div class="kanban-column" id="done-column">
+                <div class="column-header">
+                    <div class="header-left">
+                        <span class="status-dot done"></span>
+                        <span class="status-title">DONE</span>
+                        <span class="count">0</span>
+                    </div>
+                </div>
+                <div class="task-container empty">
+                    <p class="empty-msg">ยังไม่มีงานในส่วนนี้</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

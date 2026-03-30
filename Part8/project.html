@@ -6,7 +6,7 @@
     <title>Painner — Projects (Empty State)</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/project.css">
+    <link rel="stylesheet" href="css/project.css">
 </head>
 <body>
     <div class="sidebar">
@@ -58,8 +58,16 @@
                         <span class="count">0</span>
                     </div>
                 </div>
-                <div class="task-container empty">
-                    <p class="empty-msg">ยังไม่มีงานในส่วนนี้</p>
+                <div class="task-container-detail" id="task-detail">
+                    <div>
+                        <h1 class="task-header">ออกเเบบ Login UI</h1>
+                    </div>
+                    <div>
+                        <p class="task-type">Frontend</p>
+                    </div>
+                    <div class="task-profile">
+                        A
+                    </div>
                 </div>
             </div>
 
@@ -103,5 +111,77 @@
             </div>
         </div>
     </div>
+
+    <div id="pop-up">
+        <div class="pop-up-container">
+            <div id="close-btn">
+                Close
+            </div>
+            <div class="topic">
+                <div class="topic-type">
+                    In Progress
+                </div>
+                <div class="topic-type">
+                    Frontend
+                </div>
+            </div>
+            <div class="topic-header">
+                <h1>สร้าง Kanban Component</h1>
+            </div>
+            <div class="topic-user">
+                <div class="topic-left">
+                    <p>ผู้รับผิดชอบ</p>
+                </div>
+                <div class="topic-right">
+                    <p>Alex</p>
+                </div>
+            </div>
+            <div class="topic-user">
+                <div class="topic-left">
+                    <p>กําหนดส่ง</p>
+                </div>
+                <div class="topic-right">
+                    <p>24 ธ.ค. 2569</p>
+                </div>
+            </div>
+            <div class="topic-user">
+                <div class="topic-left">
+                    <p>Board</p>
+                </div>
+                <div class="topic-right">
+                    <p>Sprint 1</p>
+                </div>
+            </div>
+            <div class="topic-detail">
+                <p>รายละเอียด</p>
+                <div class="topic-detail-container">
+                    <p>
+                        detail
+                    </p>
+                </div>
+            </div>
+            <div class="topic-btn">
+                <button class="delete-btn">ลบ Task</button>
+                <button class="save-btn">บันทึก</button>
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        const task = document.getElementById('task-detail')
+        const popup = document.getElementById('pop-up')
+ 
+        task.addEventListener('click', ()=> {
+            popup.style.display = 'flex'
+
+            const close = document.getElementById('close-btn')
+
+            close.addEventListener('click', ()=> {
+                popup.style.display = 'none'
+            })
+        })
+    </script>
+
 </body>
 </html>

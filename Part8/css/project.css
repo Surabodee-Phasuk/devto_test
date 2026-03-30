@@ -164,3 +164,129 @@ body {
   cursor: pointer;
 }
 
+.task-container-detail {
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: var(--surface-light);
+  border-radius: 20px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+.task-container-detail:hover {
+  cursor: pointer
+}
+
+.task-header {
+  font-size: 16px;
+}
+
+.task-type {
+  background-color: var(--primary);
+  width: 80px;
+  color: white;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.task-profile {
+  background-color: rgb(78, 78, 206);
+  width: 26px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pop-up {
+  position: fixed;
+  inset: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(1px);
+}
+
+.pop-up-container {
+  width: 600px;
+  height: 600px;
+  background-color: var(--surface-light);
+  border-radius: 20px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#close-btn {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 20px;
+}
+
+#close-btn:hover {
+  cursor: pointer
+}
+
+.topic {
+  display: flex;
+  gap: 8px;
+  color: white;
+}
+
+.topic-type {
+  background-color: var(--primary);
+  padding: 6px;
+  border-radius: 14px;
+}
+
+.topic-user {
+  display: flex;
+  gap: 40px;
+}
+
+.topic-left{
+  width: 20%;
+}
+
+.topic-right{
+  width: 80%;
+}
+
+.topic-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.topic-detail-container {
+  border: 2px solid var(--text-muted);
+  padding: 16px;
+  border-radius: 20px;
+  min-height: 200px;
+}
+
+.topic-btn {
+  display: flex;
+  gap: 14px;
+  justify-content: flex-end;
+}
+
+.delete-btn {
+  color: white;
+  background-color: rgb(227, 85, 85);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}
+
+.save-btn {
+  color: white;
+  background-color: var(--primary);
+  padding: 8px;
+  border-radius: 8px;
+  border: none;
+}

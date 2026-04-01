@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painner - 5. หน้า Profile</title>
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-section">
+            <div class="logo-icon">P</div>
+            <span class="logo-text">Painner</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#"><img src="https://img.icons8.com/?size=100&id=101374&format=png&color=FFFFFF" alt="Icon" class="nav-icon"> Dashboard</a></li>
+            <li><a href="#">Teams</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Chat</a></li>
+        </ul>
+        <div class="profile-nav">
+            <a href="#" class="profile-nav-item">
+                <div class="sidebar-avatar">JD</div>
+                <span>Profile</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <h1 class="page-title">โปรไฟล์ของฉัน</h1>
+
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="main-avatar">JD</div>
+                <div class="profile-header-info">
+                    <h2>John Doe</h2>
+                    <p>Owner &middot; Dev Team Alpha</p>
+                </div>
+            </div>
+
+            <form class="profile-form">     
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="first-name">ชื่อ</label>
+                        <input type="text" id="first-name" value="John">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">นามสกุล</label>
+                        <input type="text" id="last-name" value="Doe">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">อีเมล</label>
+                    <input type="email" id="email" value="john.doe@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="username">ชื่อผู้ใช้งาน</label>
+                    <input type="text" id="username" value="john_dev">
+                </div>
+
+                <div class="action-buttons">
+                    <button type="button" class="btn btn-secondary">ยกเลิก</button>
+                    <button type="submit" class="btn btn-primary">บันทึก</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

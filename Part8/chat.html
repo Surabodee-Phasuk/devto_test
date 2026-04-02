@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Painner — Chat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/chat.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon">P</div>
+        <span style="font-family: 'Syne'; font-weight: bold; font-size: 18px">Painner</span>
+      </div>
+
+      <a href="team.html" class="menu-item">Teams</a>
+      <a href="dashboard.html" class="menu-item">Dashboard</a>
+      <a href="project.html" class="menu-item">Projects</a>
+      <a href="chat.html" class="menu-item active">Chat</a>
+
+      <div class="user-profile">
+        <div class="avatar">JD</div>
+        <div>
+            <a href="profile.html" style="text-decoration: none; color: inherit; display: block;">
+                <div style="font-size: 14px; font-weight: bold">John Doe</div>
+                <div style="font-size: 12px; color: var(--text-sub)">Owner</div>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="secondary-sidebar">
+      <div class="sidebar-section">
+        <div class="section-title">CHANNELS</div>
+        <a href="#" class="sub-item active"># Dev Team Alpha</a>
+        <a href="#" class="sub-item"># Team chat</a>
+      </div>
+      
+      <div class="section-divider"></div>
+
+      <div class="sidebar-section">
+        <div class="section-title">PROJECTS</div>
+        <a href="#" class="sub-item">→ Painner Web App</a>
+        <a href="#" class="sub-item">→ Marketing Site</a>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="top-bar">
+        <div class="breadcrumb">
+          <span class="breadcrumb-team"># Dev Team Alpha</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Chat</span>
+        </div>
+      </div>
+
+      <div class="page-label">TEAM CONVERSATION</div>
+
+      <div class="chat-wrapper">
+        <div class="chat-messages">
+          
+          <div class="message other">
+            <div class="chat-avatar" style="background: #fbbf24;">JD</div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">John Doe</span>
+                <span class="sender-time">10:30</span>
+              </div>
+              <div class="message-bubble">พูดคุย Sprint 1 deadline วันเสาร์นะครับ</div>
+            </div>
+          </div>
+
+          <div class="message other">
+            <div class="chat-avatar" style="background: #f472b6;">S</div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">Sarah M.</span>
+                <span class="sender-time">10:40</span>
+              </div>
+              <div class="message-bubble">ได้เลย! </div>
+            </div>
+          </div>
+
+            <div class="message self">
+            <div class="message-content">
+              <div class="message-header">
+                <span class="sender-name">Alex K.</span>
+                <span class="sender-time">10:35</span>
+              </div>
+              <div class="message-bubble self-bubble">ทำ Kanban component เสร็จแล้วครับ</div>
+            </div>
+            <div class="chat-avatar" style="background: #68d391;">A</div>
+          </div>
+          
+        </div> 
+        <div class="chat-input-area">
+          <input type="text" placeholder="พิมพ์ข้อความ..." class="chat-input" />
+          <button class="send-btn">
+            <i class="material-icons">arrow_upward</i>
+          </button>
+        </div>
+        
+      </div>
+     </div> 
+    </body>
+</html>

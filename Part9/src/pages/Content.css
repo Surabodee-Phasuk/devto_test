@@ -1,0 +1,35 @@
+.content-body {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+.content-title {
+  color: #c00000;
+}
+
+.content-image {
+  flex-shrink: 0;
+  width: 250px;
+}
+
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.content-text {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .content-body {
+    flex-direction: column;
+    align-items: center;
+  }
+  .content-image {
+    width: 100%;
+    max-width: 350px;
+  }
+}

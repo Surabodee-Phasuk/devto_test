@@ -1,0 +1,31 @@
+/* ส่วนของ Container หลักให้ครอบคลุมทั้งแถบและจัดวางกึ่งกลาง */
+.navbar {
+  background-color: #7e7fd9;
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* สไตล์ปกติของรายการเมนู */
+.nav-item {
+  text-decoration: none;
+  color: #ffffff;
+  padding: 10px 25px; 
+  margin: 0 10px;
+  font-size: 1.1rem;
+  border-radius: 25px; 
+  transition: all 0.3s ease; 
+}
+/* Active Styling ให้เด่นชัดเจน  */
+.nav-item.active {
+  background-color: #ffffff;
+  color: #7e7fd9;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item:hover:not(.active) {
+  background-color: rgba(255, 255, 255, 0.2);
+}

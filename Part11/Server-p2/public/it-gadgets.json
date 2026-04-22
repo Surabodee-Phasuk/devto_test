@@ -1,0 +1,54 @@
+{
+  "category": "IT Gadgets",
+  "totalItems": 6,
+  "items": [
+    {
+      "id": "g001",
+      "name": "Wireless Mouse",
+      "type": "Peripheral",
+      "brand": "Logitech",
+      "priceUSD": 29.99,
+      "inStock": true
+    },
+    {
+      "id": "g002",
+      "name": "Mechanical Keyboard",
+      "type": "Peripheral",
+      "brand": "Keychron",
+      "priceUSD": 89.99,
+      "inStock": true
+    },
+    {
+      "id": "g003",
+      "name": "External SSD 1TB",
+      "type": "Storage",
+      "brand": "Samsung",
+      "priceUSD": 129.99,
+      "inStock": false
+    },
+    {
+      "id": "g004",
+      "name": "Webcam 1080p",
+      "type": "Camera",
+      "brand": "Logitech",
+      "priceUSD": 49.99,
+      "inStock": true
+    },
+    {
+      "id": "g005",
+      "name": "Noise Cancelling Headphones",
+      "type": "Audio",
+      "brand": "Sony",
+      "priceUSD": 299.99,
+      "inStock": true
+    },
+    {
+      "id": "g006",
+      "name": "Portable Monitor 15.6\"",
+      "type": "Display",
+      "brand": "ASUS",
+      "priceUSD": 199.99,
+      "inStock": false
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 1. ระบบฐานข้อมูล MongoDB
+  database:
+    image: mongo:7
+    container_name: painner-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - painner_mongo_data:/data/db
+    networks:
+      - painner-network
+
+  # 2. ระบบหลังบ้าน (Backend)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: painner-backend
+    ports:
+      - "5001:5000"  # 💡 เบี่ยงพอร์ตเครื่องนอกเป็น 5001 เพื่อหลบ AirPlay ของ Mac
+    environment:
+      - MONGO_URI=mongodb://database:27017/painner
+      - JWT_SECRET=painner_secret_key_change_in_production
+      - CLIENT_URL=http://localhost:3000
+    depends_on:
+      - database
+    networks:
+      - painner-network
+
+  # 3. ระบบหน้าบ้าน (Frontend)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: painner-frontend
+    ports:
+      - "3000:80"    # รันหน้าเว็บที่พอร์ต 3000
+    depends_on:
+      - backend
+    networks:
+      - painner-network
+
+volumes:
+  painner_mongo_data:
+
+networks:
+  painner-network:
+    driver: bridge
